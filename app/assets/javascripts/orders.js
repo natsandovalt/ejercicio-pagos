@@ -2,7 +2,9 @@ var items = 1;
 var options = null;
 
 function removeItem(obj){
-	console.log(obj);
+	items--;
+	var div = obj.parentNode.parentNode;
+	div.parentNode.removeChild(div);
 }
 
 function addItem(obj){
@@ -39,11 +41,11 @@ function addItem(obj){
 	label3.innerHTML = "X";
 	label3.setAttribute("style", "color: white;");
 	select.setAttribute("class", "form-control");
-	select.setAttribute("name", "order[][item]");
+	select.setAttribute("name", "order[items][][id]");
 	select.setAttribute("required", true);
 	select.innerHTML = options;
 	input.setAttribute("class", "form-control");
-	input.setAttribute("name", "order[][quantity]");
+	input.setAttribute("name", "order[items][][quantity]");
 	input.setAttribute("required", true);
 	input.setAttribute("type", "number");
 	i.setAttribute("class", "fa fa-minus-circle fa-2x pointer");

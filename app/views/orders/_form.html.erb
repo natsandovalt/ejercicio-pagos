@@ -4,7 +4,7 @@
 			<div class="col-md-7">
 				<div class="form-group">
 				    <label >Seleccionar elemento</label>
-				    <select class="form-control" id="0" name="order[][item]" required="true">
+				    <select class="form-control" id="0" name="order[items][][id]" required="true">
 				  		<option value="" selected disabled hidden>Seleccione...</option>
 				  		<% Item.all.each do |item| %>
 				  		<option value="<%= item.id %>"><%= item.description_price %></option>
@@ -15,7 +15,7 @@
 			<div class="col-md-3">
 				<div class="form-group">
 					<label>Cantidad</label>
-					<input type="number" name="order[][quantity]" class="form-control", required="true">
+					<input type="number" name="order[items][][quantity]" class="form-control", required="true">
 				</div>
 			</div>
 			<div class="col-md-2">
