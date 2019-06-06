@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 		order.total = total
 
 		if order.save
-			flash[:success] = 'Orden creada con éxito'
+			flash[:success] = '¡Orden creada con éxito!'
 			redirect_to orders_path
 		else
 			flash[:danger] = 'Error al crear la orden'
@@ -26,6 +26,13 @@ class OrdersController < ApplicationController
 			@url = orders_path
 			render 'edit'
 		end
+	end
+
+	def destroy
+		order = Order.find(params[:id])
+		order.destroy
+		flash[:success] = '¡Orden eliminada exitosamente!'
+		redirect_to orders_path
 	end
 
 	def add_items_to_order(order_id, items)

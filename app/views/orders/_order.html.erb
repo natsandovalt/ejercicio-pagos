@@ -1,0 +1,9 @@
+<tr>
+	<td><%= order.total_mxn %></td>
+	<td><%= order.total_products %></td>
+	<td>
+		<%= link_to order_path(order.id), method: :delete, style: 'color: red;', data: { confirm: '¿Estás seguro que deseas eliminar la orden?'} do %>
+			<i class="fa fa-trash"></i> Eliminar
+		<% end %>
+	</td>
+</tr>
