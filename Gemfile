@@ -35,6 +35,12 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'sidekiq'
 
+gem 'sprockets-rails'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+gem 'money'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

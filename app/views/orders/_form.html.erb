@@ -1,0 +1,42 @@
+<%= form_for @order, method: @method, url: @url do |f| %>
+	<div id="items">
+		<div class="row">
+			<div class="col-md-7">
+				<div class="form-group">
+				    <label >Seleccionar elemento</label>
+				    <select class="form-control" id="0" name="order[][item]" required="true">
+				  		<option value="" selected disabled hidden>Seleccione...</option>
+				  		<% Item.all.each do |item| %>
+				  		<option value="<%= item.id %>"><%= item.description_price %></option>
+				  		<% end %>
+				  	</select>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label>Cantidad</label>
+					<input type="number" name="order[][quantity]" class="form-control", required="true">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<label style="color: white;">X</label><br />
+				<i class="fa fa-minus-circle fa-2x pointer" style="color: red;" onclick="removeItem(this);"></i>
+			</div>
+		</div>
+	</div><br />
+
+	<div class="row">
+		<div class="col-md-3">
+			<button class="btn btn-info" onclick="addItem(this);" type="button"><i class="fa fa-plus"></i> Agregar producto</button>
+		</div>
+	</div><br />
+
+	<div class="row">
+		<div class="col-md-6">
+		    <%= link_to 'Cancelar', orders_path, class: 'btn btn-light full-width' %>
+		</div>
+		<div class="col-md-6">
+			<%= f.submit 'Dar de alta orden', class: 'btn btn-primary full-width' %>
+		</div>
+	</div>
+<% end %>
