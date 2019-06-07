@@ -1,10 +1,19 @@
 <tr>
 	<td><%= bill.expiration_date.strftime('%-d %B %Y - %l:%M %p') %></td>
-	<td><%= bill.penalties.empty? ? 'N/A' : bill.penalties.length * 100 %></td>
+	<td><%= bill.order.total_mxn %></td>
+	<td><%= bill.penalties.empty? ? 'N/A' : Money.new((bill.penalties.length * 100) * 100, 'MXN').format %></td>
 	<td>
 		<%= link_to bill_path(bill.id), style: 'color: #3390FF;' do %>
 			<i class="fa fa-eye"></i> Ver detalle
 		<% end %>
 	</td>
-	<td>Pagar</td>
+	<td>
+		<% if bill.payment.nil? %>
+		<%= link_to payments_path(bill_id: bill.id), method: :post, style: 'color: green;', data: {confirm: '¿Estás seguro que deseas pagar esta factura?'} do %>
+			<i class="fa fa-money"></i> Pagar
+		<% end %>
+		<% else %>
+		<span style="color: green;"><i class="fa fa-check-circle"></i> Pagado</span>
+		<% end %>
+	</td>
 </tr>

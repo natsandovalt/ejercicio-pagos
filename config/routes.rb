@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :orders, except: [:edit, :update]
   resources :bills
   resources :penalties, only: [:destroy]
+  resources :payments, only: [:create]
 end

@@ -1,4 +1,5 @@
 class BillsController < ApplicationController
+	require 'money'
 
 	def index
 		@bills = Bill.all		

@@ -3,7 +3,7 @@
 	<div class="row justify-content-md-center">
 		<div class="card">
 			<div class="card-header">
-				Productos en la orden
+				Productos en la orden<%= ' - Pagado' if !@bill.payment.nil? %>
 			</div>
 			<div class="card-body">
 				<blockquote class="blockquote mb-0">
@@ -11,7 +11,7 @@
 					<ul class="list-group">
 						<%= render @item_order %>
 					</ul><br />
-					<footer class="blockquote-footer"><%= "Total: #{@bill.order.total_mxn}" %></footer>
+					<footer class="blockquote-footer"><%= "Total: #{Money.new((@bill.order.total + @bill.penalties.length * 100) * 100, 'MXN').format}" %></footer>
 				</blockquote>
 			</div>
 		</div>
