@@ -1,0 +1,40 @@
+<br /> <h1 class="text-center">Detalle de la factura</h1>
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div class="card">
+			<div class="card-header">
+				Productos en la orden
+			</div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>A continuación se desglosa un detalle de los productos de la orden</p>
+					<ul class="list-group">
+						<%= render @item_order %>
+					</ul><br />
+					<footer class="blockquote-footer"><%= "Total: #{@bill.order.total_mxn}" %></footer>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<% if @bill.penalties.empty? %>
+	<div class="alert alert-info" role="alert">
+	  No hay multas aplicadas hasta el momento
+	</div>
+	<% else %>
+	<div class="row justify-content-md-center">
+		<h3>Multas aplicadas</h3>
+		<table class="table table-borderless">
+		  <thead>
+		    <tr>
+		      <th scope="col">Fecha</th>
+		      <th scope="col"></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <%= render @penalties %>
+		  </tbody>
+		</table>
+	</div>
+	<% end %>
+</div>

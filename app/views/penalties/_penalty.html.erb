@@ -1,0 +1,8 @@
+<tr>
+	<td><%= penalty.created_at.strftime('%-d %B %Y - %l:%M %p') %></td>
+	<td>
+		<%= link_to penalty_path(penalty.id), method: :delete, style: 'color: red;', data: { confirm: '¿Estás seguro de eliminar esta multa?'} do %>
+			<i class="fa fa-trash"></i> Eliminar
+		<% end %>
+	</td>
+</tr>

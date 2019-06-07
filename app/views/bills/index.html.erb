@@ -1,0 +1,29 @@
+<br /><h1 class="text-center">Facturas</h1>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-md-12">
+      <% if @bills.empty? %>
+      <br />
+      <div class="alert alert-primary" role="alert">
+        Por el momento no facturas.
+      </div>
+      <% else %>
+      <br />
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Fecha de vencimiento</th>
+            <th scope="col">$ de Multas</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @bills %>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
