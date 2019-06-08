@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
 		order.total = total
 
 		if order.save
+			BillsWorker.perform_in(8.days, bill.id) # 1 of exp date and 7 for a week
 			flash[:success] = '¡Orden creada con éxito!'
 			redirect_to orders_path
 		else
