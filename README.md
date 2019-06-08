@@ -5,20 +5,20 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.5.3
 
-* System dependencies
+* Rails version: 5.2.3
 
-* Configuration
+* Before run the project you must:
 
-* Database creation
+1. Install redis
+2. bundle install
+3. rake db:create
+4. rake db:migrate
+5. rake db:seed
 
-* Database initialization
+* To run the project:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. redis-server /usr/local/etc/redis.conf
+2. bundle exec redis-server (inside the root project)
+3. rails s (inside the root project)
